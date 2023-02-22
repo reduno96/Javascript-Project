@@ -1,0 +1,191 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f0ac2f;
+    --main-color-alt: #e4a126;
+    --parg-color: #777;
+    --border-color: #e9e6E9;
+    --backgr-color: #ececec;
+    --text-ft-color: #b9b9b9;
+    --main-transition: .5s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --border-rd: 7px;
+    --main-line: 1.7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.scroller {
+    position: fixed;
+    background-color: var(--main-color);
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 5px;
+    z-index: 9999999;
+}
+
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container Project */
+.projects {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+}
+
+.projects .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    overflow: hidden;
+
+}
+
+/* @media () */
+
+/* Start Clock */
+.boxOne {
+    min-height: 400px;
+    border-radius: 6px;
+    background: #383838;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.boxOne h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.boxOne .clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid rgb(131, 131, 127);
+    background-color: hsl(51, 91%, 67%);
+    box-shadow: rgba(245, 195, 195, 0.15) 0px 48px 100px 0px;
+}
+
+.boxOne .numbers div {
+    position: absolute;
+    color: #0e915d;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.boxOne .numbers .twelve {
+    top: 6px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.boxOne .numbers .three {
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.boxOne .numbers .six {
+    bottom: 6px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.boxOne .numbers .nine {
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.boxOne .clock .arrows {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxOne .clock .arrows::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #0e915d;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    z-index: 4;
+}
+
+.boxOne .clock .arrows div {
+    position: absolute;
+    background-color: white;
+    width: 5px;
+    height: 110px;
+    transform-origin: bottom center;
+    bottom: 50%;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.boxOne .clock .arrows .hour {
+    height: 70px;
+    transform: rotate(30deg);
+}
+
+.boxOne .clock .arrows .minute {
+    height: 95px;
+    transform: rotate(70deg);
+}
+
+.boxOne .clock .arrows .second {
+    background-color: goldenrod;
+    transform: rotate(230deg);
+}
+
+.boxOne img {
+    position: absolute;
+    width: 70px;
+    left: 55%;
+    transform: translate(-50px);
+    top: 60px;
+    z-index: 2;
+}
+
+/* 
+.container .header {
+    width: 200px;
+    text-align: center; */
+/* } */
+
+/* End Clock */
