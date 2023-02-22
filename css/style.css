@@ -50,6 +50,27 @@ ul {
     margin-right: auto;
 }
 
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
 /* Container Project */
 .projects {
     padding-top: var(--main-padding-top);
@@ -59,29 +80,22 @@ ul {
 .projects .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 50px;
+    gap: 80px;
     overflow: hidden;
-
 }
+
 
 /* @media () */
 
 /* Start Clock */
 .boxOne {
-    min-height: 400px;
+    min-height: 380px;
     border-radius: 6px;
     background: #383838;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px,
         rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.boxOne h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
 }
 
 .boxOne .clock {
@@ -93,7 +107,15 @@ ul {
     border-radius: 50%;
     border: 1px solid rgb(131, 131, 127);
     background-color: hsl(51, 91%, 67%);
-    box-shadow: rgba(245, 195, 195, 0.15) 0px 48px 100px 0px;
+    box-shadow: rgba(255, 255, 255, 0.452) 4px 4px 10px 0px;
+}
+
+@media (max-width: 767px) {
+    .boxOne .clock {
+        width: 280px;
+        height: 280px;
+    }
+
 }
 
 .boxOne .numbers div {
@@ -159,6 +181,7 @@ ul {
 }
 
 .boxOne .clock .arrows .hour {
+    width: 6px;
     height: 70px;
     transform: rotate(30deg);
 }
@@ -173,6 +196,7 @@ ul {
     transform: rotate(230deg);
 }
 
+
 .boxOne img {
     position: absolute;
     width: 70px;
@@ -182,10 +206,16 @@ ul {
     z-index: 2;
 }
 
-/* 
-.container .header {
-    width: 200px;
-    text-align: center; */
-/* } */
+.boxOne .info {
+    padding: 20px;
+    border-top: 1px solid #2d2d2e;
+}
+
+.boxOne .info h2 {
+    color: var(--main-color);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.473);
+}
+
 
 /* End Clock */

@@ -23,7 +23,6 @@ function updateClock() {
   const hourDeg = (hour / 12) * 360;
   const minuteDeg = (minute / 60) * 360;
   const secondDeg = (second / 60) * 360;
-  console.log(hourDeg, hour);
   hourEl.style.transform = `rotate(${hourDeg}deg)`;
   minuteEl.style.transform = `rotate(${minuteDeg}deg)`;
   secondEl.style.transform = `rotate(${secondDeg}deg)`;
