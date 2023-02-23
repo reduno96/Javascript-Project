@@ -408,7 +408,7 @@ ul {
 
 .dark .dark-mode-switch .dark-mode-switch-ident {
     top: 2px;
-    right: calc(2px + 50%);
+    left: calc(2px + 50%);
 }
 
 .calendar-days div span {
@@ -463,5 +463,14 @@ ul {
     right: 0;
 }
 
+.calendar-days div.curr-date {
+    background-color: var(--main-color);
+    color: var(--white);
+    border-radius: 50%;
+}
+
+.calendar-days div.curr-date span {
+    display: none;
+}
 
 /* End Calendar*/
