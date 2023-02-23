@@ -28,3 +28,10 @@ function updateClock() {
   secondEl.style.transform = `rotate(${secondDeg}deg)`;
 }
 setInterval(updateClock, 1000);
+
+// Calendar
+
+document.querySelector(".dark-mode-switch").onclick = () => {
+  document.querySelector(".boxTwo").classList.toggle("dark");
+  document.querySelector(".boxTwo").classList.toggle("light");
+};

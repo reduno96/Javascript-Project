@@ -19,6 +19,45 @@
     --main-line: 1.7;
 }
 
+:root {
+    --dark-body: #4d4c5a;
+    --dark-main: #141529;
+    --dark-second: #79788c;
+    --dark-hover: #323048;
+    --dark-text: #f8fbff;
+
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #edf0f5;
+    --light-text: #151426;
+
+    --blue: #0000ff;
+    --white: #fff;
+
+    --shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    --font-family: cursive;
+}
+
+.dark {
+    --bg-body: var(--dark-body);
+    --bg-main: var(--dark-main);
+    --bg-second: var(--dark-second);
+    --color-hover: var(--dark-hover);
+    --color-txt: var(--dark-text);
+}
+
+.light {
+    --bg-body: var(--light-body);
+    --bg-main: var(--light-main);
+    --bg-second: var(--light-second);
+    --color-hover: var(--light-hover);
+    --color-txt: var(--light-text);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -79,19 +118,28 @@ ul {
 
 .projects .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 80px;
     overflow: hidden;
 }
 
+@media (max-width: 767px) {
+    .projects .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        overflow: hidden;
+    }
+
+}
 
 /* @media () */
 
 /* Start Clock */
 .boxOne {
     min-height: 380px;
-    border-radius: 6px;
-    background: #383838;
+    border-radius: 26px;
+    background: var(--bg-body);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px,
         rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
@@ -115,7 +163,6 @@ ul {
         width: 280px;
         height: 280px;
     }
-
 }
 
 .boxOne .numbers div {
@@ -206,16 +253,215 @@ ul {
     z-index: 2;
 }
 
-.boxOne .info {
+.info {
     padding: 20px;
     border-top: 1px solid #2d2d2e;
 }
 
-.boxOne .info h2 {
+.info h2 {
+    font-family: var(--font-family);
     color: var(--main-color);
     text-align: center;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.473);
 }
 
-
 /* End Clock */
+/* Start Calendar */
+.projects .boxTwo {
+    min-height: 380px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-family);
+    background-color: var(--bg-body);
+    border-radius: 26px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--color-txt);
+    padding: 10px;
+}
+
+.calendar-body {
+    padding: 10px;
+}
+
+.calendar-weak-day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    height: 50%;
+}
+
+.calendar-weak-day div {
+    display: grid;
+    place-items: center;
+    color: #4a94d1;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: var(--color-txt);
+}
+
+.calendar-days div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .projects .boxTwo {
+        padding: 5px;
+    }
+
+    .calendar-header {
+        font-size: 17px;
+    }
+
+    .calendar-days div {
+        width: 30px;
+        height: 30px;
+
+    }
+}
+
+.month-picker {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.month-picker:hover {
+    background-color: var(--color-hover)
+}
+
+.year-picker {
+    display: flex;
+    align-items: center;
+}
+
+.year-change {
+    height: 80px;
+    width: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.year-change:hover {
+    background-color: var(--color-hover);
+}
+
+.calendar-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.toggle {
+    display: flex;
+}
+
+.toggle span {
+    margin-right: 10px;
+    color: var(--color-txt);
+}
+
+.dark-mode-switch {
+    position: relative;
+    width: 48px;
+    height: 25px;
+    border-radius: 14px;
+    background-color: var(--bg-second);
+    cursor: pointer;
+}
+
+.dark-mode-switch-ident {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.2s ease-in-out;
+}
+
+.dark .dark-mode-switch .dark-mode-switch-ident {
+    top: 2px;
+    right: calc(2px + 50%);
+}
+
+.calendar-days div span {
+    position: absolute;
+}
+
+.calendar-days div:hover span {
+    transition: width 0.3s ease-in-out, height 0.2s ease-in-out;
+}
+
+.calendar-days div span:nth-child(1),
+.calendar-days div span:nth-child(3) {
+    width: 2px;
+    height: 0;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(1),
+.calendar-days div:hover span:nth-child(3) {
+    height: 100%;
+}
+
+.calendar-days div span:nth-child(1) {
+    bottom: 0;
+    left: 0;
+}
+
+.calendar-days div span:nth-child(3) {
+    top: 0;
+    right: 0;
+}
+
+.calendar-days div span:nth-child(2),
+.calendar-days div span:nth-child(4) {
+    width: 0;
+    height: 2px;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(2),
+.calendar-days div:hover span:nth-child(4) {
+    width: 100%;
+}
+
+.calendar-days div span:nth-child(2) {
+    top: 0;
+    left: 0;
+}
+
+.calendar-days div span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+
+/* End Calendar*/
