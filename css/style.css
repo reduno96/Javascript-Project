@@ -110,6 +110,12 @@ ul {
     }
 }
 
+@media (min-width: 1550px) {
+    .container {
+        width: 1500px;
+    }
+}
+
 /* Container Project */
 .projects {
     padding-top: var(--main-padding-top);
@@ -130,26 +136,34 @@ ul {
         gap: 30px;
         overflow: hidden;
     }
-
 }
 
 /* @media () */
 
 /* Start Clock */
 .boxOne {
+    font-family: var(--font-family);
+    padding: 20px;
     min-height: 380px;
     border-radius: 26px;
-    background: var(--bg-body);
+    background: var(--bg-main);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px,
         rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.boxOne .rolex h2 {
+    color: #0e915d;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.473);
+}
+
 .boxOne .clock {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 330px;
+    height: 330px;
     margin: 30px auto;
     padding: 15px;
     border-radius: 50%;
@@ -160,8 +174,8 @@ ul {
 
 @media (max-width: 767px) {
     .boxOne .clock {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
     }
 }
 
@@ -254,7 +268,7 @@ ul {
 }
 
 .info {
-    padding: 20px;
+    margin-top: 15px;
     border-top: 1px solid #2d2d2e;
 }
 
@@ -272,7 +286,7 @@ ul {
     display: grid;
     place-items: center;
     font-family: var(--font-family);
-    background-color: var(--bg-body);
+    background-color: var(--bg-main);
     border-radius: 26px;
     padding: 20px;
     position: relative;
@@ -323,6 +337,7 @@ ul {
     padding: 5px;
     position: relative;
     cursor: pointer;
+    animation: to-top 1s forwards;
 }
 
 @media (max-width: 767px) {
@@ -337,7 +352,6 @@ ul {
     .calendar-days div {
         width: 30px;
         height: 30px;
-
     }
 }
 
@@ -473,4 +487,84 @@ ul {
     display: none;
 }
 
+.month-list {
+    position: absolute;
+    width: 100%;
+    height: 69%;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-main);
+    color: var(--color-txt);
+    font-weight: 600;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 3px;
+    transform: scale(1.1);
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.month-list.show {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.month-list>div {
+    display: grid;
+    place-items: center;
+}
+
+.month-list>div>div {
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+@media (max-width: 767px) {
+    .info h2 {
+        font-size: 20px;
+    }
+}
+
 /* End Calendar*/
+
+/* Start weather */
+.boxThree {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main);
+    border-radius: 26px;
+    font-family: var(--font-family);
+}
+
+
+/* End weather */
+
+
+
+
+
+
+
+/* Key Frames */
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
