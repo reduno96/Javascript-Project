@@ -17,6 +17,9 @@
     --main-padding-bottom: 100px;
     --border-rd: 7px;
     --main-line: 1.7;
+    --off-white: #e5e5e5;
+    --transp-white-1: rgba(255, 255, 255, 0.25);
+    --transp-white-2: rgba(255, 255, 255, 0.102);
 }
 
 :root {
@@ -537,15 +540,92 @@ ul {
 
 /* Start weather */
 .boxThree {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--bg-main);
-    border-radius: 26px;
+    min-height: 380px;
+    padding: 20px;
     font-family: var(--font-family);
+    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    color: var(--color-txt);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
 }
 
+
+.boxThree .content {
+    width: 100%;
+    background-color: var(--transp-white-2);
+    backdrop-filter: blur(10px);
+    padding: 15px 10px;
+}
+
+.search-container {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    gap: 25px;
+}
+
+.search-container input,
+.search-container button {
+    outline: none;
+    border: none;
+}
+
+.search-container input {
+    padding: 0.5em;
+    background-color: transparent;
+    border-bottom: 2px solid var(--transp-white-1);
+    color: white;
+    font-weight: 400px;
+}
+
+.search-container input::placeholder {
+    color: var(--off-white);
+}
+
+.search-container input:focus {
+    color: white;
+}
+
+.search-container button {
+    color: #0362f1;
+    background-color: white;
+}
+
+#result h2 {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    margin: 1.25em 0;
+}
+
+.weather,
+.desc {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1em;
+}
+
+.weather {
+    margin-top: -0.7em;
+}
+
+#result img {
+    margin: 0.6em 0 0 0;
+    width: 6.2em;
+    filter: drop-shadow(0 1.8em 3.7em var(--shadow));
+}
+
+#result h1 {
+    font-size: 4em;
+    margin: 0.3em 0 0.7em 0;
+    line-height: 0;
+    font-weight: 400;
+    color: white;
+
+}
 
 /* End weather */
 

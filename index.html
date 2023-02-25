@@ -20,6 +20,9 @@
       <div class="container">
         <!-- Start Clock -->
         <div class="boxOne dark">
+          <div class="rolex">
+            <h2>Rolex</h2>
+          </div>
           <div class="clock">
             <div class="numbers">
               <div class="twelve">12</div>
@@ -36,6 +39,14 @@
               src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_da_Rolex.png"
               alt="Rolex-Logo"
             />
+          </div>
+          <div class="calendar-footer">
+            <div class="toggle">
+              <span>Dark Mode</span>
+              <div class="dark-mode-switch">
+                <div class="dark-mode-switch-ident"></div>
+              </div>
+            </div>
           </div>
           <div class="info">
             <h2>Mini Project "Clock"</h2>
@@ -95,7 +106,7 @@
             <div class="calendar-footer">
               <div class="toggle">
                 <span>Dark Mode</span>
-                <div class="dark-mode-switch">
+                <div class="jok dark-mode-switch">
                   <div class="dark-mode-switch-ident"></div>
                 </div>
               </div>
@@ -107,26 +118,19 @@
           </div>
         </div>
         <!-- End Calendar -->
-        <div class="boxOne">
-          <div class="clock">
-            <div class="numbers">
-              <div class="twelve">12</div>
-              <div class="three">3</div>
-              <div class="six">6</div>
-              <div class="nine">9</div>
+        <div class="boxThree">
+          <div class="content">
+            <div class="search-container">
+              <input
+                type="text"
+                name=""
+                id="city"
+                value="Tetouan"
+                placeholder="Enter a city Name"
+              />
+              <button id="search-btn">Search</button>
             </div>
-            <div class="arrows">
-              <div class="hour"></div>
-              <div class="minute"></div>
-              <div class="second"></div>
-            </div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Logo_da_Rolex.png"
-              alt="Rolex-Logo"
-            />
-          </div>
-          <div class="info">
-            <h2>Mini Project "Clock"</h2>
+            <div id="result"></div>
           </div>
         </div>
         <div class="boxOne">
@@ -153,5 +157,6 @@
       </div>
     </div>
     <script src="javascript/main.js"></script>
+    <script src="javascript/key.js"></script>
   </body>
 </html>
