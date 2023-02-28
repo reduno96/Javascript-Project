@@ -189,11 +189,11 @@ let getWeather = () => {
       `;
       })
       .catch(() => {
-        result.innerHTML = `<h3 class="msg">City Not Found</h3>`;
+        result.innerHTML = `<h3 class="msg">SomeThing went Wrong"</h3>`;
       });
   }
 };
-
+result.innerHTML;
 searchBtn.addEventListener("click", getWeather);
 
 window.addEventListener("load", getWeather);
@@ -224,8 +224,9 @@ function loadFlag(element) {
   for (code in country_list) {
     if (code == element.value) {
       let imgTag = element.parentElement.querySelector("img");
-      imgTag.src = `https://flagcdn.com/48x36/${counry_list[code]}.png"`;
-      console.log(counry_list[code]);
+      imgTag.src = `https://flagcdn.com/48x36/${country_list[
+        code
+      ].toLowerCase()}.png`;
     }
   }
 }
@@ -236,6 +237,16 @@ window.addEventListener("load", () => {
 
 getButton.addEventListener("click", (e) => {
   e.preventDefault();
+  getEchangeRate();
+});
+
+const exchangeIcon = document.querySelector(".drop-list .icon");
+exchangeIcon.addEventListener("click", () => {
+  let tempCode = fromCurrency.value;
+  fromCurrency.value = toCurrency.value;
+  toCurrency.value = tempCode;
+  loadFlag(fromCurrency);
+  loadFlag(toCurrency);
   getEchangeRate();
 });
 
@@ -257,5 +268,8 @@ function getEchangeRate() {
       let exchangerate = result.conversion_rates[toCurrency.value];
       let totalExchangeRate = (amountval * exchangerate).toFixed(2);
       exchangerateTxt.innerHTML = `${amountval} ${fromCurrency.value} = ${totalExchangeRate} ${toCurrency.value}`;
+    })
+    .catch(() => {
+      exchangerateTxt.innerText = "SomeThing went Wrong";
     });
 }
