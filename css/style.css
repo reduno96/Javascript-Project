@@ -95,31 +95,27 @@ ul {
     margin-right: auto;
 }
 
-/* Small */
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
+.box {
+    width: 100%;
+    height: 600px;
+    max-width: 500px;
+    margin: 0px auto;
 }
 
-/* Medium */
-@media (min-width: 992px) {
-    .container {
-        width: 970px;
-    }
+
+.info {
+    padding-top: 20px;
+    height: 65px;
+    border-top: 1px solid #2d2d2e;
+    width: 100%;
 }
 
-/* Large */
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
-}
-
-@media (min-width: 1550px) {
-    .container {
-        width: 1500px;
-    }
+.info h2 {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--main-color);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.473);
 }
 
 /* Container Project */
@@ -130,17 +126,14 @@ ul {
 
 .projects .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 80px;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 30px;
     overflow: hidden;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 498px) {
     .projects .container {
-        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-        overflow: hidden;
     }
 }
 
@@ -150,13 +143,18 @@ ul {
 .boxOne {
     font-family: var(--font-family);
     padding: 20px;
-    min-height: 380px;
     border-radius: 26px;
     background: var(--bg-main);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
         rgba(0, 0, 0, 0.12) 0px -12px 30px,
         rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.boxOne .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
 }
 
 .boxOne .rolex h2 {
@@ -170,7 +168,7 @@ ul {
     position: relative;
     width: 330px;
     height: 330px;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 15px;
     border-radius: 50%;
     border: 1px solid rgb(131, 131, 127);
@@ -178,7 +176,7 @@ ul {
     box-shadow: rgba(255, 255, 255, 0.452) 4px 4px 10px 0px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 498px) {
     .boxOne .clock {
         width: 260px;
         height: 260px;
@@ -273,22 +271,9 @@ ul {
     z-index: 2;
 }
 
-.info {
-    /* margin-top: 15px; */
-    border-top: 1px solid #2d2d2e;
-}
-
-.info h2 {
-    font-family: var(--font-family);
-    color: var(--main-color);
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.473);
-}
-
 /* End Clock */
 /* Start Calendar */
 .projects .boxTwo {
-    min-height: 380px;
     display: grid;
     place-items: center;
     font-family: var(--font-family);
@@ -300,18 +285,28 @@ ul {
     box-shadow: var(--shadow);
 }
 
+.boxTwo .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+    height: 362px;
+    margin-top: 15px;
+}
+
 .calendar-header {
     display: flex;
+    width: 100%;
+    height: 61px;
     justify-content: space-between;
     align-items: center;
     font-size: 25px;
     font-weight: 600;
     color: var(--color-txt);
-    padding: 10px;
-}
-
-.calendar-body {
-    padding: 10px;
 }
 
 .calendar-weak-day {
@@ -346,18 +341,23 @@ ul {
     animation: to-top 1s forwards;
 }
 
-@media (max-width: 767px) {
-    .projects .boxTwo {
-        padding: 5px;
-    }
 
-    .calendar-header {
-        font-size: 17px;
-    }
+@media (max-width: 489px) {
+    /* .projects .boxTwo {
+        padding: 7px;
+    } */
+
+    /* .calendar-header {
+        font-size: 20px;
+    } */
 
     .calendar-days div {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .calendar-weak-day {
+        height: 30%;
     }
 }
 
@@ -496,7 +496,7 @@ ul {
 .month-list {
     position: absolute;
     width: 100%;
-    height: 69%;
+    height: 74%;
     top: 0;
     left: 0;
     background-color: var(--bg-main);
