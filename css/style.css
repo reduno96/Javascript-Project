@@ -100,13 +100,16 @@ ul {
     height: 600px;
     max-width: 500px;
     margin: 0px auto;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-radius: 26px;
 }
 
 
 .info {
     padding-top: 20px;
     height: 65px;
-    border-top: 1px solid #2d2d2e;
+    border-top: 1px solid var(--dark-hover);
     width: 100%;
 }
 
@@ -142,13 +145,9 @@ ul {
 /* Start Clock */
 .boxOne {
     font-family: var(--font-family);
-    padding: 20px;
     border-radius: 26px;
     background: var(--bg-main);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px,
-        rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
-        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: var(--shadow)
 }
 
 .boxOne .wrapper {
@@ -279,10 +278,8 @@ ul {
     font-family: var(--font-family);
     background-color: var(--bg-main);
     border-radius: 26px;
-    padding: 20px;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow);
 }
 
 .boxTwo .wrapper {
@@ -294,7 +291,7 @@ ul {
 .calendar-body {
     display: flex;
     flex-direction: column;
-    height: 362px;
+    height: 365px;
     margin-top: 15px;
 }
 
@@ -343,17 +340,9 @@ ul {
 
 
 @media (max-width: 489px) {
-    /* .projects .boxTwo {
-        padding: 7px;
-    } */
-
-    /* .calendar-header {
-        font-size: 20px;
-    } */
-
     .calendar-days div {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
 
     .calendar-weak-day {
@@ -543,18 +532,16 @@ ul {
 
 /* Start weather */
 .boxThree {
-    min-height: 380px;
-    padding: 20px;
-    font-family: var(--font-family);
-    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(rgb(48, 62, 143), rgb(73, 169, 182));
     color: var(--color-txt);
     border-radius: 26px;
-    box-shadow: var(--shadow);
 }
 
 .boxThree .content {
-    width: 100%;
-    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
     text-align: center;
 }
 
@@ -589,6 +576,10 @@ ul {
 .search-container button {
     color: #0362f1;
     background-color: white;
+}
+
+#result {
+    margin-top: 15px;
 }
 
 #result h2 {
@@ -661,15 +652,14 @@ ul {
 /* End weather */
 /* Start currency  */
 .boxFour {
-    min-height: 380px;
-    padding: 20px;
     font-family: 'Poppins', sans-serif;
-    border-radius: 26px;
-    box-shadow: var(--shadow);
+    background: linear-gradient(#D9DEE8, #7e828a);
+}
+
+.boxFour .wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #8d99ae
+    flex-direction: column;
+    height: 500px;
 }
 
 .boxFour header {
@@ -677,6 +667,10 @@ ul {
     letter-spacing: 2px;
     font-weight: 500;
     text-align: center;
+}
+
+.content {
+    padding: 20px;
 }
 
 .content form {
@@ -692,7 +686,7 @@ form :where(input, select, button) {
 
 form p {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 form input {
@@ -762,9 +756,8 @@ form .exchange-rate {
 }
 
 form button {
-    height: 50px;
     font-size: 20px;
-    height: 52px;
+    height: 66px;
     color: #fff;
     cursor: pointer;
     background-color: #675AFE
@@ -784,7 +777,6 @@ form button {
     padding: 10px;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow);
 }
 
 .boxFive .calculator {
