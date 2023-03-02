@@ -95,6 +95,15 @@ ul {
     margin-right: auto;
 }
 
+@media (max-width: 498px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .box {
     width: 100%;
     height: 600px;
@@ -105,6 +114,13 @@ ul {
     border-radius: 26px;
 }
 
+@media (max-width: 320px) {
+    .box {
+        padding: 10px;
+        max-width: 280px;
+
+    }
+}
 
 .info {
     padding-top: 20px;
@@ -153,7 +169,8 @@ ul {
 .boxOne .wrapper {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    justify-content: space-around;
+    height: 440px;
 }
 
 .boxOne .rolex h2 {
@@ -306,6 +323,14 @@ ul {
     color: var(--color-txt);
 }
 
+@media (max-width: 498px) {
+
+    .calendar-header {
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
 .calendar-weak-day {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -380,6 +405,7 @@ ul {
 }
 
 .calendar-footer {
+    margin: 10px 0;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
@@ -543,6 +569,7 @@ ul {
     flex-direction: column;
     height: 500px;
     text-align: center;
+    padding: 20px;
 }
 
 .search-container {
@@ -659,22 +686,37 @@ ul {
 .boxFour .wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 500px;
 }
 
 .boxFour header {
+    margin-top: 20px;
     font-size: 32px;
     letter-spacing: 2px;
     font-weight: 500;
     text-align: center;
 }
 
-.content {
+.boxFour.content {
     padding: 20px;
 }
 
+@media (max-width: 430px) {
+    .boxFour header {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+    }
+
+    .boxFour .content {
+        padding: 5px;
+    }
+}
+
+
 .content form {
-    margin: 40px 0 20px 0;
+    margin: 20px 0;
 }
 
 form :where(input, select, button) {
@@ -687,6 +729,14 @@ form :where(input, select, button) {
 form p {
     font-size: 20px;
     margin-bottom: 15px;
+}
+
+@media (max-width: 498px) {
+
+    form p {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
 }
 
 form input {
@@ -719,6 +769,10 @@ form .drop-list {
     width: 115px;
 }
 
+.select-box img {
+    max-width: 25px;
+}
+
 .select-box select {
     width: auto;
     font-size: 16px;
@@ -739,14 +793,29 @@ form .drop-list {
     border-right: 2px solid #fff
 }
 
-.select-box img {
-    max-width: 25px;
-}
-
 .drop-list .icon {
     cursor: pointer;
     font-size: 22px;
     margin-top: 75px;
+}
+
+
+@media (max-width: 498px) {
+
+    .drop-list .select-box {
+        height: 45px;
+        width: 100px;
+    }
+
+    .select-box img {
+        max-width: 20px;
+    }
+
+    .drop-list .icon {
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: 50px;
+    }
 }
 
 form .exchange-rate {
