@@ -774,6 +774,7 @@ form .drop-list {
 }
 
 .select-box select {
+    cursor: pointer;
     width: auto;
     font-size: 16px;
     margin: 0 -2px 0 11px;
@@ -798,7 +799,6 @@ form .drop-list {
     font-size: 22px;
     margin-top: 75px;
 }
-
 
 @media (max-width: 498px) {
 
@@ -836,40 +836,44 @@ form button {
 /* Start Calculator */
 
 .boxFive {
-    min-height: 380px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    font-family: var(--font-family);
     background-color: var(--bg-main);
+}
+
+.boxFive .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 100%;
+}
+
+.boxFive .display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex: 1 1 0%;
+    border: 1px solid var(--dark-body);
     border-radius: 26px;
+    min-height: 100px;
     padding: 10px;
-    position: relative;
-    overflow: hidden;
+    color: white;
+    text-align: right;
 }
 
 .boxFive .calculator {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 100%;
-    overflow: hidden;
 }
-
-.boxFive .display {
-    min-height: 80px;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    color: white;
-    text-align: right;
-    flex: 1 1 0%;
-}
-
 
 .boxFive .display .input {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .boxFive .display .output {
@@ -885,15 +889,15 @@ form button {
 }
 
 .boxFive .display .brackets,
-.boxFive .dispaly .percent {
+.boxFive .display .percent {
     color: var(--blue)
 }
 
 .boxFive .keys {
     background-color: #292D36;
-    margin-top: 12px;
+    margin: 12px 0;
     padding: 12px;
-    border-radius: 26px 26px 0 0;
+    border-radius: 26px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
