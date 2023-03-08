@@ -941,9 +941,68 @@ form button {
     color: var(--blue)
 }
 
-
-
 /* End Calculator */
+/* Start pacman */
+
+.boxSix {
+    font-family: var(--font-family);
+    background: linear-gradient(#ff4800, #f8f18a);
+    padding: 30px;
+}
+
+.boxSix .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 500px;
+
+}
+
+.boxSix .wrapper h2 {
+    color: #F3CB37;
+    text-shadow: var(--shadow);
+    font-weight: bold;
+    border: 4px solid #D21C22;
+    border-radius: 6px;
+    font-size: 50px;
+    padding: 5px;
+    margin: 10px auto;
+}
+
+.playGame img {
+    width: 100%;
+    height: 100%;
+}
+
+.boxSix .lien-game {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxSix .lien-game a {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(247, 22, 22);
+    text-shadow: var(--shadow);
+    text-decoration: none;
+}
+
+.boxSix .lien-game i {
+    font-size: 30px;
+    color: rgb(247, 22, 22);
+}
+
+.boxSix .lien-game:hover i {
+    animation: moving-arrow var(--main-transition) linear infinite;
+}
+
+
+
+/* End pacman */
 
 @keyframes to-top {
     0% {
@@ -954,5 +1013,11 @@ form button {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes moving-arrow {
+    100% {
+        transform: translateX(10px);
     }
 }
