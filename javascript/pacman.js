@@ -87,6 +87,9 @@ class Pacman {
     this.moveForwards();
     if (this.checkCollisions()) {
       this.moveBackwards();
+      this.direction = tempDirection;
+    } else {
+      this.moveBackwards;
     }
   }
 
@@ -119,6 +122,7 @@ class Pacman {
       this.width,
       this.height
     );
+    canvasContext.restore();
   }
 
   getMapX() {
