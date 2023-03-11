@@ -74,6 +74,9 @@ let update = () => {
   // todo
   pacman.moveProcess();
   pacman.eat();
+  for (let i = 0; i < ghost.length; i++) {
+    ghost[i].moveProcess();
+  }
 };
 
 let drawfoods = () => {

@@ -22,20 +22,33 @@ class Ghost {
     this.imageHeight = imageHeight;
     this.imageWidth = imageWidth;
     this.range = range;
-    this.randomTargetsIndex = parseInt(
-      Math.random() * randomTargetsForGhost.length
-    );
+    this.randomTargetsIndex = parseInt(Math.random() * 4);
+    this.target = randomTargetsForGhost[this.randomTargetsIndex];
     setInterval(() => {
       this.changeRandomDirection();
     }, 10000);
   }
-  changeRandomDirection() {
-    this.randomTargetIndex += 1;
-    this.randomTargetIndex = this.randomTargetIndex % 4;
+
+  isInRange() {
+    let xDistance = Math.abs(pacman.getMapX() - this.getMapX());
+    let yDistance = Math.abs(pacman.getMapY() - this.getMapY());
+    if (
+      Math.sqrt(xDistance * xDistance + yDistance * yDistance) <= this.range
+    ) {
+      return true;
+    }
+    return false;
   }
+
+  changeRandomDirection() {
+    let addition = 1;
+    this.randomTargetsIndex += addition;
+    this.randomTargetsIndex = this.randomTargetsIndex % 4;
+  }
+
   moveProcess() {
-    if (this.isInRangeOfPacman()) {
-      target = pacman;
+    if (this.isInRange()) {
+      this.target = pacman;
     } else {
       this.target = randomTargetsForGhost[this.randomTargetsIndex];
     }
@@ -48,16 +61,16 @@ class Ghost {
 
   moveBackwards() {
     switch (this.direction) {
-      case DIRECTION_RIGHT:
+      case 4:
         this.x -= this.speed;
         break;
-      case DIRECTION_UP:
+      case 3:
         this.y += this.speed;
         break;
-      case DIRECTION_LEFT:
+      case 2:
         this.x += this.speed;
         break;
-      case DIRECTION_BOTTOM:
+      case 1:
         this.y -= this.speed;
         break;
     }
@@ -65,16 +78,16 @@ class Ghost {
 
   moveForwards() {
     switch (this.direction) {
-      case DIRECTION_RIGHT:
+      case 4:
         this.x += this.speed;
         break;
-      case DIRECTION_UP:
+      case 3:
         this.y -= this.speed;
         break;
-      case DIRECTION_LEFT:
+      case 2:
         this.x -= this.speed;
         break;
-      case DIRECTION_BOTTOM:
+      case 1:
         this.y += this.speed;
         break;
     }
@@ -100,23 +113,29 @@ class Ghost {
     return isCollided;
   }
 
-  isInRangeOfPacman() {
-    let xDistance = Math.abs(pacman.getMapX() - this.getMapX);
-    let yDistance = Math.abs(pacman.getMapY() - this.getMapY);
-    if (
-      Math.sqrt(xDistance * xDistance + yDistance * yDistance) <= this.range
-    ) {
-      return true;
-    }
-    return false;
-  }
   changeDirectionIfPossible() {
     let tempDirection = this.direction;
     this.direction = this.calculateNewDirection(
       map,
-      parseIntthis(this.target.x / oneBlockSize),
-      parseIntthis(this.target.y / oneBlockSize)
+      parseInt(this.target.x / oneBlockSize),
+      parseInt(this.target.y / oneBlockSize)
     );
+    if (typeof this.direction == "undefined") {
+      this.direction = tempDirection;
+      return;
+    }
+    if (
+      this.getMapY() != this.getMapYRightSide() &&
+      (this.direction == DIRECTION_LEFT || this.direction == DIRECTION_RIGHT)
+    ) {
+      this.direction == DIRECTION_UP;
+    }
+    if (
+      this.getMapX() != this.getMapXRightSide() &&
+      (this.direction == DIRECTION_UP || this.direction == DIRECTION_RIGHT)
+    ) {
+      this.direction == DIRECTION_LEFT;
+    }
     this.moveForwards();
     if (this.checkCollisions()) {
       this.moveBackwards();
@@ -124,13 +143,80 @@ class Ghost {
     } else {
       this.moveBackwards;
     }
+    console.log(this.direction);
   }
 
-  calculateNewDirection(map, destX, desY) {
+  calculateNewDirection(map, destX, destY) {
     let mp = [];
-    for (let i = 0; map.length; i++) {
-      mp[i] = mp[i].slice();
+    for (let i = 0; i < map.length; i++) {
+      mp[i] = map[i].slice();
     }
+
+    let queue = [
+      {
+        x: this.getMapX(),
+        y: this.getMapY(),
+        moves: [],
+      },
+    ];
+
+    while (queue.length > 0) {
+      let poped = queue.shift();
+      if (poped.x == destX && poped.y == destY) {
+        return poped.moves[0];
+      } else {
+        mp[poped.y][poped.x] = 1;
+        let neighborList = this.addNeighbors(poped, mp);
+        for (let i = 0; i < neighborList.length; i++) {
+          queue.push(neighborList[i]);
+        }
+      }
+    }
+    return DIRECTION_UP;
+  }
+
+  addNeighbors(poped, mp) {
+    let queue = [];
+    let numOfRow = mp.length;
+    let numOfColumns = mp[0].length;
+
+    if (
+      poped.x - 1 >= 0 &&
+      poped.x - 1 < numOfRow &&
+      mp[poped.y][poped.x - 1] != 1
+    ) {
+      let tempMoves = poped.moves.slice();
+      tempMoves.push(DIRECTION_LEFT);
+      queue.push({ x: poped.x - 1, y: poped.y, moves: tempMoves });
+    }
+    if (
+      poped.x + 1 >= 0 &&
+      poped.x + 1 < numOfRow &&
+      mp[poped.y][poped.x + 1] != 1
+    ) {
+      let tempMoves = poped.moves.slice();
+      tempMoves.push(DIRECTION_RIGHT);
+      queue.push({ x: poped.x + 1, y: poped.y, moves: tempMoves });
+    }
+    if (
+      poped.y - 1 >= 0 &&
+      poped.y - 1 < numOfRow &&
+      mp[poped.y - 1][poped.x] != 1
+    ) {
+      let tempMoves = poped.moves.slice();
+      tempMoves.push(DIRECTION_UP);
+      queue.push({ x: poped.x, y: poped.y - 1, moves: tempMoves });
+    }
+    if (
+      poped.y + 1 >= 0 &&
+      poped.y + 1 < numOfRow &&
+      mp[poped.y + 1][poped.x] != 1
+    ) {
+      let tempMoves = poped.moves.slice();
+      tempMoves.push(DIRECTION_BOTTOM);
+      queue.push({ x: poped.x, y: poped.y + 1, moves: tempMoves });
+    }
+    return queue;
   }
   changeAnimation() {
     this.currentFrame =
